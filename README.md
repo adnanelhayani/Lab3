@@ -71,7 +71,9 @@ Les performances des modèles sont résumées dans le tableau ci-dessous :
 #### 4. **Génération de Texte**
 - Chargement du modèle fine-tuné et génération de texte à partir d'une phrase de départ (`prompt`).
 - Personnalisation des paramètres de génération (longueur maximale, température, top-p, etc.).
-- Exemple de prompt : *"الذكاء الاصطناعي هو فرع من"*, produisant un texte cohérent en arabe.
+- Exemple de prompt : *"شهدت أبحاث الذكاء الاصطناعي صحوة جديدة من خلال "*, produisant un texte cohérent en arabe.
+- Texte généré : شهدت أبحاث الذكاء الاصطناعي صحوة جديدة من خلال مءسسات التعليم في مجال الذكاء الصناعي، ومن خلال التركيز على المناهج التعليمية بشكل كبير على معالجة اللغة الطبيعية في مختلف المجالات؛ حيث قام الباحثون في جامعة برينستون وجامعة برينفيلد وجامعة كاليفورنيا وجامعة كارنيغي ميلون ومعهد ماساتشوستس للتكنولوجيا وجامعة ماساتشوستس وجامعة دارتموث وجامعة جورج هوبكنز ومعهد ماس للتكنولوجيا ومعهد كاليفورنيا للتكنولوجيا بتطوير المناهج الرياضية لتصور ءنماط محددة من المناهج في مجالات مختلفة مثل التعليم والتعلم الروبوتيات الرياضية؟ ءدوات رياضية محددة؅ ءكثر من ذلكػ في عام 1974ؔ ءواخرينيات؏�ines‏ianism�eeding— وهي ءبحاث علمية واسعة�ame vision‛ وبحلول عام 1982�ata recognition�uralism‟ recomnation�redialism record�AI recocomotion‌ وبحلول الثمانينيات؊طاني�93
+والقواعد الرياضية التي تحدد السلوك الاجتماعي وفقا يءو «ءنها ءصبحت جزءا من
 
 ---
 
