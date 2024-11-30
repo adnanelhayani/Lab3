@@ -42,19 +42,36 @@ Les performances des modèles sont résumées dans le tableau ci-dessous :
 
 ---
 
-## Partie 2 : Modèle Transformer (Génération de texte)
+## Partie 2 : Modèle Transformer (Fine-tuning et Génération de Texte)
 
 ### Étapes Réalisées
-1. **Fine-tuning d'un modèle pré-entraîné GPT-2** :
-   - Utilisation de `pytorch-transformers` pour charger le modèle GPT-2.
-   - Fine-tuning du modèle sur un dataset personnalisé collecté via scraping.
 
-2. **Génération de texte** :
-   - Création d'une fonction pour générer des textes en arabe à partir d'une phrase donnée.
-   - Utilisation de stratégies avancées comme `top-p` et `temperature` pour diversifier la génération.
+#### 1. **Chargement du modèle AraGPT2**
+- Utilisation du modèle pré-entraîné `aubmindlab/aragpt2-medium`, spécialement optimisé pour l'arabe.
+- Configuration du tokenizer avec ajout d'un token de padding pour gérer les séquences de différentes longueurs.
 
-### Exemple de Résultat
-À partir de la phrase donnée **"الذكاء الاصطناعي هو فرع من"**, le modèle génère un paragraphe cohérent expliquant le sujet.
+#### 2. **Collecte et Prétraitement des Données**
+- Scraping de textes en arabe à partir de pages Wikipédia (par exemple, sur "intelligence artificielle" et "apprentissage automatique").
+- Étapes de prétraitement :
+  - Suppression des voyelles courtes (tashkeel).
+  - Normalisation des hamzas.
+  - Suppression des caractères de ponctuation.
+  - Filtrage des paragraphes trop courts ou non pertinents.
+- Les paragraphes prétraités sont sauvegardés dans un fichier texte.
+
+#### 3. **Entraînement du Modèle**
+- Conversion des données textuelles en un format adapté au modèle à l'aide d'un `DataLoader`.
+- Utilisation des hyperparamètres suivants :
+  - Époques : 3
+  - Taux d'apprentissage : 5e-5
+  - Optimiseur : AdamW
+- Entraînement sur GPU (si disponible) avec rétropropagation.
+- Le modèle fine-tuné est sauvegardé pour une utilisation ultérieure.
+
+#### 4. **Génération de Texte**
+- Chargement du modèle fine-tuné et génération de texte à partir d'une phrase de départ (`prompt`).
+- Personnalisation des paramètres de génération (longueur maximale, température, top-p, etc.).
+- Exemple de prompt : *"الذكاء الاصطناعي هو فرع من"*, produisant un texte cohérent en arabe.
 
 ---
 
@@ -64,10 +81,3 @@ Les performances des modèles sont résumées dans le tableau ci-dessous :
 - **Transformer et génération de texte** : Exploration du fine-tuning de modèles pré-entraînés et des capacités de génération des Transformers.
 - **Évaluation des performances** : Utilisation de métriques pour analyser et comparer les modèles de manière rigoureuse.
 
----
-
-## Dépôt GitHub
-Le code complet et les fichiers générés sont disponibles dans ce dépôt. Les fichiers incluent :
-- Scripts de scraping et prétraitement.
-- Modèles d'entraînement et évaluation.
-- Fine-tuning de GPT-2 et génération de texte.
